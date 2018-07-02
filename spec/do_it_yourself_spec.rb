@@ -34,9 +34,20 @@ describe ('#do_it_yourself') do
     new_hash = MyHash.new()
     new_hash.my_store("peanut", "elephant")
     new_hash.my_store("cheese", "mouse")
-    # other_hash = MyHash.new()
-    # other_hash.my_store("cheese", "mouse")
-    # other_hash.my_store("apple", "horse")
     expect(new_hash.my_merge([["cheese", "mouse"],["apple", "horse"]])).to(eq([["peanut", "elephant"], ["cheese", "mouse"], ["apple", "horse"]]))
+  end
+  it "Joins two hashes together" do
+    new_hash = MyHash.new()
+    new_hash.my_store("peanut", "elephant")
+    new_hash.my_store("cheese", "mouse")
+    new_hash.my_merge([["cheese", "mouse"],["apple", "horse"]])
+    expect(new_hash.my_fetch("cheese")).to(eq("mouse"))
+  end
+  it "Takes in a value and returns the key" do
+    new_hash = MyHash.new()
+    new_hash.my_store("peanut", "elephant")
+    new_hash.my_store("cheese", "mouse")
+    new_hash.my_merge([["cheese", "mouse"],["apple", "horse"]])
+    expect(new_hash.my_fetch("mouse")).to(eq("cheese"))
   end
 end
