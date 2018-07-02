@@ -53,9 +53,8 @@ class MyHash
   end
 
   def my_merge(hash)
-    merged = (@custom_hash & hash).to_h
+    merged = @custom_hash | hash
     merged
-
   end
 
 end

@@ -30,13 +30,13 @@ describe ('#do_it_yourself') do
     new_hash.my_store("cheese", "mouse")
     expect(new_hash.my_length).to(eq(2))
   end
-  # it "Joins two hashes together" do
-  #   new_hash = MyHash.new()
-  #   new_hash.my_store("peanut", "elephant")
-  #   new_hash.my_store("cheese", "mouse")
-  #   other_hash = MyHash.new()
-  #   other_hash.my_store("cheese", "mouse")
-  #   other_hash.my_store("apple", "horse")
-  #   expect(new_hash.my_merge(other_hash)).to(eq("yes"))
-  # end
+  it "Joins two hashes together" do
+    new_hash = MyHash.new()
+    new_hash.my_store("peanut", "elephant")
+    new_hash.my_store("cheese", "mouse")
+    # other_hash = MyHash.new()
+    # other_hash.my_store("cheese", "mouse")
+    # other_hash.my_store("apple", "horse")
+    expect(new_hash.my_merge([["cheese", "mouse"],["apple", "horse"]])).to(eq([["peanut", "elephant"], ["cheese", "mouse"], ["apple", "horse"]]))
+  end
 end
