@@ -28,7 +28,7 @@ class MyHash
     if input_index % 2 == 0
       @custom_hash.flatten.fetch(input_index + 1)
     else
-      "party time"
+      @custom_hash.flatten.fetch(input_index - 1)
     end
   end
 
